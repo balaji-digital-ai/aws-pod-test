@@ -1,0 +1,18 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Principal": {
+				"Federated": "arn:aws:iam::Account1:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/XXXXX"
+			},
+			"Action": "sts:AssumeRoleWithWebIdentity",
+			"Condition": {
+				"StringLike": {
+					"oidc.eks.eu-west-1.amazonaws.com/id/XXXXX:sub": "system:serviceaccount:runner:*-service-account",
+					"oidc.eks.eu-west-1.amazonaws.com/id/XXXXX:aud": "sts.amazonaws.com"
+				}
+			}
+		}
+	]
+}
