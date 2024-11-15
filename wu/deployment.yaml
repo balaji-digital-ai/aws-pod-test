@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lambda-invoker
+  namespace: test  # 'test' namespace where your service account is located
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lambda-invoker
+  template:
+    metadata:
+      labels:
+        app: lambda-invoker
+    spec:
+      serviceAccountName: wu-service-account  # Reference the service account here
+      containers:
+      - name: lambda-invoker
+        image: balajivsna/test:latest  # Your Docker image
+        imagePullPolicy: Always
+        env:
+        - name: FUNCTION_NAME
+          value: testforwu  # Replace with your Lambda function name
+        - name: REGION
+          value: eu-west-1  # Replace with your AWS region
+        - name: ASSUME_ROLE
+          value: ""  # Replace with your assume role ARN, or leave empty if not needed
