@@ -1,0 +1,30 @@
+
+//PoCInvokeLambda
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "lambda:InvokeFunction",
+            "Resource": "*"
+        }
+    ]
+}
+
+//InvokeLambdaFunctions
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "sts:AssumeRole"
+            ],
+            "Resource": [
+                "arn:aws:iam::93XXXXXX:role/devops-release-poc-exec-lambda-role"
+            ]
+        }
+    ]
+}
+
