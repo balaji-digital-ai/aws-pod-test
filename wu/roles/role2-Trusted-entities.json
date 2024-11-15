@@ -5,7 +5,7 @@
             "Sid": "Statement1",
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::93XXXXXXXXXX:role/devops-release-poc-lambda-eks-sa-role"
+                "AWS": "arn:aws:iam::XXXXXXXXXX:role/role1"
             },
             "Action": "sts:AssumeRole"
         }

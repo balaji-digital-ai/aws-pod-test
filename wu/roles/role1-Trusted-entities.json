@@ -1,0 +1,52 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Principal": {
+				"Federated": "arn:aws:iam::XXXXXXXX:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/XXXXXXXXX"
+			},
+			"Action": "sts:AssumeRoleWithWebIdentity",
+			"Condition": {
+				"StringEquals": {
+					"oidc.eks.eu-west-1.amazonaws.com/id/XXXXXXXXX:sub": "system:serviceaccount:test:wu-service-account",
+					"oidc.eks.eu-west-1.amazonaws.com/id/XXXXXXXXXXX:aud": "sts.amazonaws.com"
+				}
+			}
+		},
+		{
+			"Effect": "Allow",
+			"Principal": {
+				"Federated": "arn:aws:iam::XXXXXXXXXXXX:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/XXXXXXXXXXX"
+			},
+			"Action": "sts:AssumeRoleWithWebIdentity",
+			"Condition": {
+				"StringEquals": {
+					"oidc.eks.eu-west-1.amazonaws.com/id/XXXXXXXXXXXXXXXXXXXXXXX:sub": "system:serviceaccount:runner:default",
+					"oidc.eks.eu-west-1.amazonaws.com/id/XXXXXXXXXXXXXXXXXXXXXXX:aud": "sts.amazonaws.com"
+				}
+			}
+		},
+		{
+			"Effect": "Allow",
+			"Principal": {
+				"Federated": "arn:aws:iam::XXXXXXXXX:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/XXXXXXXX"
+			},
+			"Action": "sts:AssumeRoleWithWebIdentity",
+			"Condition": {
+				"StringLike": {
+					"oidc.eks.eu-west-1.amazonaws.com/id/XXXXXXXXXXXX:sub": "system:serviceaccount:runner:*-service-account",
+					"oidc.eks.eu-west-1.amazonaws.com/id/XXXXXXXXXXXXX:aud": "sts.amazonaws.com"
+				}
+			}
+		},
+		{
+			"Sid": "ec2",
+			"Effect": "Allow",
+			"Principal": {
+				"Service": "ec2.amazonaws.com"
+			},
+			"Action": "sts:AssumeRole"
+		}
+	]
+}

@@ -6,7 +6,7 @@
             "Action": [
                 "lambda:InvokeFunction"
             ],
-            "Resource": "arn:aws:lambda:eu-west-1:93XXXXXXXXXX:function:*"
+            "Resource": "arn:aws:lambda:eu-west-1:XXXXXXXXXX:function:*"
         }
     ]
 }

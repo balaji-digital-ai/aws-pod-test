@@ -22,7 +22,7 @@
                 "sts:AssumeRole"
             ],
             "Resource": [
-                "arn:aws:iam::93XXXXXX:role/devops-release-poc-exec-lambda-role"
+                "arn:aws:iam::XXXXXXXX:role/role2"
             ]
         }
     ]
